@@ -19,7 +19,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile  file(System.getenv("HOME")+"/keysotre/appFriends/appFriends.jks")
+            storeFile  file("/keysotre/appFriends/appFriends.jks")
             storePassword "LAAP@t@23kl%%"
             keyAlias "appFriends"
             keyPassword "LAAP@t@23kl%%"

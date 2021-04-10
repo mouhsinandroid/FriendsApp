@@ -1,0 +1,39 @@
+name: Publish
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test-app-destribute:
+    runs-on: ubuntu-latest
+    step:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/step-java@v1
+        with:
+        Java-version: 11
+      -name: Assemble Release Bundle
+       run: |
+        ./gradlew bundelRelease
+       - name: Sign Release
+         uses: r0dkll/sign-android-release@1
+         with:
+           releaseDirectory: app/build/outputs/bundle/release
+           signingKeyBase64: ${{secrets.ANDROID_KEYSTORE }}
+           alias: ${{ secrets.KEYSTORE_ALIAS }}
+           keyStorePassword: ${{ secrets.ALIAS_PASSWORD }}
+           keyPassword: ${{ secrets.KEYSTORE_PRIVATE_KEY_PASSWORD }}
+
+        - name: Create service_account.json
+          run: echo '${{ secrets.GOOGLE_SERVICES_API }}' > service_account.json
+
+        - name: Deploy to Alpha
+          uses: r0adkll/upload-google-play@v1
+          with:
+            serviceAccountJson: service_account.json
+            packageName: com.mouhsinbourqaiba.friendsapp
+            releaseFiles: app/build/outputs/release/app-release.aab
+            track: alpha
+            whatsNewDirectory: whatsNewDirectory/
+

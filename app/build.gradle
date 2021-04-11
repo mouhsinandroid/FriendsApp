@@ -17,21 +17,21 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-        release {
-            storeFile  file("/keysotre/appFriends/appFriends.jks")
-            storePassword "LAAP@t@23kl%%"
-            keyAlias "appFriends"
-            keyPassword "LAAP@t@23kl%%"
-
-        }
-    }
+//    signingConfigs {
+//        release {
+//            storeFile  file("/keysotre/appFriends/appFriends.jks")
+//            storePassword "LAAP@t@23kl%%"
+//            keyAlias "appFriends"
+//            keyPassword "LAAP@t@23kl%%"
+//
+//        }
+//    }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
     }
     compileOptions {

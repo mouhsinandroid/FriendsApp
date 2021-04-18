@@ -25,3 +25,4 @@ captures/
 # Misc
 .externalNativeBuild
 .cxx
+.app/keystore/appFriends

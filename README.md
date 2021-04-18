@@ -1,32 +1,36 @@
 # FriendsApp
-Friends Social Network app
+
+## Friends Social Network app
 
 Develop App Friends:
 
 To do list : 
 
-Android client:
+## Libraries used
     -Compose UI
-    -Coroutines
-    -Jetpack stuff
 
----
-
-
-User storie Account :
+## Project outline
+### Account
     -Create account
     -Login
 
-Timeline:
+### Timeline:
     -post staff(text)
     -see post from friend
 
-Folks:
+### Folks:
     -Find people 
     -Follow people
 
-Friends:
+### Friends:
     -See Friends
 
 Backend(later):
     -Spring boot
+
+
+### Todo List ###
+
+SignUp
+- email + password + validation
+- handle
